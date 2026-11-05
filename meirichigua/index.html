@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日吃瓜-每日吃瓜热点资讯_吃瓜事件_瓜圈观察站</title>
+<meta name="description" content="每日吃瓜是一个专注吃瓜热点与瓜圈话题的资讯观察站，梳理每日吃瓜事件脉络、时间线与多方说法，帮助读者在娱乐热点与网络话题中看清来龙去脉，理性吃瓜。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23f2f7ee'/%3E%3Ccircle cx='32' cy='32' r='22' fill='%234f9a5b'/%3E%3Ccircle cx='32' cy='32' r='16' fill='%23e8f3e4'/%3E%3Ccircle cx='26' cy='29' r='2' fill='%23233a24'/%3E%3Ccircle cx='38' cy='29' r='2' fill='%23233a24'/%3E%3Cpath d='M25 37q7 6 14 0' stroke='%23233a24' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --green:#4f9a5b;
+  --green-deep:#2f6a3a;
+  --green-soft:#eaf3e6;
+  --ink:#1f2a21;
+  --muted:#5d6b60;
+  --line:#dbe6d8;
+  --bg:#f8faf6;
+  --card:#ffffff;
+  --warm:#f0a94a;
+  --radius:14px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+}
+img,svg{display:block;max-width:100%;}
+a{color:var(--green-deep);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
+
+/* Header */
+header.site{
+  position:sticky;top:0;z-index:50;
+  background:rgba(248,250,246,.94);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.head-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding:12px 0;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;color:var(--ink);letter-spacing:.5px;}
+.brand:hover{text-decoration:none;}
+.brand .logo-mark{width:36px;height:36px;flex:none;}
+nav.main-nav ul{display:flex;gap:6px;list-style:none;margin:0;padding:0;flex-wrap:wrap;}
+nav.main-nav a{
+  display:inline-block;padding:6px 12px;border-radius:999px;
+  font-size:14.5px;color:var(--muted);
+}
+nav.main-nav a:hover{background:var(--green-soft);color:var(--green-deep);text-decoration:none;}
+nav.main-nav a.active{background:var(--green-soft);color:var(--green-deep);font-weight:600;}
+
+/* Hero */
+.hero{
+  padding:44px 0 36px;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(79,154,91,.16), transparent 46%),
+    radial-gradient(circle at 8% 90%, rgba(240,169,74,.14), transparent 44%);
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{display:grid;grid-template-columns:1.35fr .9fr;gap:36px;align-items:center;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:600;color:var(--green-deep);
+  background:var(--green-soft);border:1px solid var(--line);
+  padding:4px 12px;border-radius:999px;margin-bottom:16px;
+}
+h1{
+  font-size:clamp(30px,4.6vw,46px);
+  line-height:1.22;margin:0 0 16px;letter-spacing:1px;
+  color:var(--ink);
+}
+h1 .hl{color:var(--green-deep);}
+.hero p.lead{font-size:16.5px;color:var(--muted);margin:0 0 22px;max-width:34em;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 22px;border-radius:999px;font-size:15px;font-weight:600;
+  border:1px solid transparent;cursor:pointer;
+}
+.btn-primary{background:var(--green-deep);color:#fff;}
+.btn-primary:hover{background:#255330;text-decoration:none;color:#fff;}
+.btn-ghost{background:#fff;color:var(--green-deep);border-color:var(--line);}
+.btn-ghost:hover{background:var(--green-soft);text-decoration:none;}
+.btn[aria-disabled="true"]{opacity:.85;cursor:default;}
+.hero-visual{
+  background:var(--card);border:1px solid var(--line);border-radius:calc(var(--radius) + 6px);
+  padding:18px;box-shadow:0 10px 26px rgba(47,106,58,.07);
+}
+.hero-visual figcaption{font-size:12.5px;color:var(--muted);margin-top:10px;text-align:center;}
+
+/* Section basics */
+section.block{padding:48px 0;}
+section.block.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.sec-head{margin-bottom:26px;max-width:44em;}
+.sec-head h2{font-size:clamp(21px,2.6vw,26px);margin:0 0 8px;letter-spacing:.5px;}
+.sec-head p{margin:0;color:var(--muted);font-size:15px;}
+.sec-tag{font-size:12.5px;font-weight:700;letter-spacing:2px;color:var(--green);text-transform:uppercase;margin-bottom:6px;}
+
+/* Cards: how to read */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 20px;
+}
+.card h3{margin:0 0 8px;font-size:17.5px;}
+.card p{margin:0;font-size:14.8px;color:var(--muted);}
+.card .num{
+  width:30px;height:30px;border-radius:9px;background:var(--green-soft);color:var(--green-deep);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-bottom:12px;
+}
+
+/* 今日瓜单 */
+.today{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.dish{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;display:flex;gap:16px;
+}
+.dish .icon{flex:none;width:46px;height:46px;border-radius:12px;background:var(--green-soft);display:flex;align-items:center;justify-content:center;}
+.dish h3{margin:0 0 6px;font-size:16.5px;}
+.dish .meta{font-size:12.5px;color:var(--green);font-weight:600;letter-spacing:1px;margin-bottom:6px;}
+.dish p{margin:0;font-size:14.5px;color:var(--muted);}
+
+/* 时间线 */
+.timeline{list-style:none;margin:0;padding:0;position:relative;}
+.timeline::before{
+  content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:var(--line);
+}
+.timeline li{position:relative;padding:0 0 22px 34px;}
+.timeline li:last-child{padding-bottom:0;}
+.timeline li::before{
+  content:"";position:absolute;left:2px;top:8px;width:16px;height:16px;border-radius:50%;
+  background:#fff;border:3px solid var(--green);
+}
+.timeline .t{font-size:12.5px;font-weight:700;color:var(--green-deep);letter-spacing:1px;}
+.timeline h3{margin:2px 0 4px;font-size:16px;}
+.timeline p{margin:0;font-size:14.5px;color:var(--muted);}
+
+/* 观点对比 */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.compare .card h3{display:flex;align-items:center;gap:8px;}
+.compare .card p + p{margin-top:8px;}
+.badge{font-size:11.5px;padding:2px 9px;border-radius:999px;font-weight:700;letter-spacing:.5px;}
+.badge.a{background:#eef6ea;color:var(--green-deep);}
+.badge.b{background:#fdf3e3;color:#9a6418;}
+
+/* 词表 */
+.terms{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
+.terms span{
+  font-size:13.5px;color:var(--green-deep);background:#fff;
+  border:1px solid var(--line);border-radius:999px;padding:5px 14px;
+}
+
+/* CTA */
+.cta{
+  background:linear-gradient(135deg,#2f6a3a,#4f9a5b);
+  color:#fff;border-radius:calc(var(--radius) + 6px);
+  padding:38px 32px;display:flex;align-items:center;justify-content:space-between;
+  gap:24px;flex-wrap:wrap;
+}
+.cta h2{margin:0 0 8px;font-size:23px;color:#fff;letter-spacing:.5px;}
+.cta p{margin:0;color:rgba(255,255,255,.88);font-size:15px;max-width:36em;}
+.cta .btn-ghost{background:#fff;border-color:#fff;color:var(--green-deep);}
+
+/* Footer */
+footer.site{
+  border-top:1px solid var(--line);background:#fff;padding:34px 0 26px;margin-top:10px;
+}
+.foot-grid{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;}
+.foot-brand{max-width:30em;}
+.foot-brand .brand{font-size:18px;margin-bottom:8px;}
+.foot-brand p{margin:0;font-size:13.5px;color:var(--muted);}
+.foot-links{display:flex;gap:40px;flex-wrap:wrap;}
+.foot-links div{min-width:120px;}
+.foot-links h4{margin:0 0 10px;font-size:13px;color:var(--ink);letter-spacing:1px;}
+.foot-links ul{list-style:none;margin:0;padding:0;}
+.foot-links li{margin-bottom:6px;}
+.foot-links a{font-size:13.5px;color:var(--muted);}
+.foot-links a:hover{color:var(--green-deep);}
+.copyright{
+  margin-top:24px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+
+@media (max-width:880px){
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-visual{order:-1;}
+  .grid-3{grid-template-columns:1fr 1fr;}
+  .today{grid-template-columns:1fr;}
+  .compare{grid-template-columns:1fr;}
+}
+@media (max-width:600px){
+  body{font-size:15.5px;}
+  .head-inner{padding:10px 0;}
+  nav.main-nav ul{gap:2px;}
+  nav.main-nav a{padding:5px 9px;font-size:13.5px;}
+  .hero{padding:30px 0 26px;}
+  .grid-3{grid-template-columns:1fr;}
+  section.block{padding:36px 0;}
+  .cta{padding:28px 22px;}
+  .foot-links{gap:24px;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap head-inner">
+    <a class="brand" href="#top" aria-label="每日吃瓜 首页">
+      <svg class="logo-mark" viewBox="0 0 64 64" role="img" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="#eaf3e6"/>
+        <circle cx="32" cy="32" r="22" fill="#4f9a5b"/>
+        <circle cx="32" cy="32" r="16" fill="#f2f7ee"/>
+        <circle cx="26" cy="29" r="2" fill="#233a24"/>
+        <circle cx="38" cy="29" r="2" fill="#233a24"/>
+        <path d="M25 37q7 6 14 0" stroke="#233a24" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <path d="M32 10v6M54 32h-6M32 54v-6M10 32h6" stroke="#2f6a3a" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>每日吃瓜</span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <ul>
+        <li><a href="#today" class="active">今日瓜单</a></li>
+        <li><a href="#howto">吃瓜方法</a></li>
+        <li><a href="#timeline">事件时间线</a></li>
+        <li><a href="#views">多方说法</a></li>
+        <li><a href="#words">瓜圈词典</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">瓜圈观察站 · 理性吃瓜</span>
+        <h1>每日吃瓜</h1>
+        <p class="lead">把一天里刷屏的瓜摊开来看：谁在说、说了什么、前后有没有对上。每日吃瓜不做结论批发商，只把事件脉络、时间线与多方说法摆在一起，让你自己判断这一口瓜甜不甜。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#today">看今日瓜单</a>
+          <a class="btn btn-ghost" href="#howto">学怎么吃瓜</a>
+        </div>
+      </div>
+      <figure class="hero-visual" aria-label="吃瓜场景示意图">
+        <svg viewBox="0 0 320 220" role="img" aria-label="一只切开的西瓜与几片瓜瓣，象征吃瓜话题的展开">
+          <rect x="0" y="0" width="320" height="220" rx="12" fill="#f2f7ee"/>
+          <circle cx="248" cy="52" r="34" fill="#eaf3e6"/>
+          <circle cx="62" cy="170" r="26" fill="#fdf3e3"/>
+          <path d="M90 150a70 70 0 0 1 140 0z" fill="#4f9a5b"/>
+          <path d="M100 150a60 60 0 0 1 120 0z" fill="#7ec48a"/>
+          <path d="M110 150a50 50 0 0 1 100 0z" fill="#f2f7ee"/>
+          <circle cx="143" cy="126" r="3.4" fill="#233a24"/>
+          <circle cx="160" cy="120" r="3.4" fill="#233a24"/>
+          <circle cx="177" cy="126" r="3.4" fill="#233a24"/>
+          <circle cx="152" cy="139" r="3.4" fill="#233a24"/>
+          <circle cx="168" cy="139" r="3.4" fill="#233a24"/>
+          <path d="M70 176h180" stroke="#dbe6d8" stroke-width="4" stroke-linecap="round"/>
+          <path d="M212 108q18-10 30 6" stroke="#2f6a3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </svg>
+        <figcaption>每日吃瓜 · 把话题切开，看清每一层</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 今日瓜单 -->
+  <section class="block" id="today">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-tag">Today</div>
+        <h2>今日瓜单：四条正在发酵的话题线索</h2>
+        <p>瓜单按“可查证程度”排序，越靠前的事实来源越集中。每条线索只保留能被复述的关键点，不替你下判断。</p>
+      </div>
+      <div class="today">
+        <article class="dish">
+          <div class="icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2f6a3a" stroke-width="2" stroke-linecap="round"><path d="M4 5h16v11H8l-4 4z"/></svg>
+          </div>
+          <div>
+            <div class="meta">线索一 · 官方回应</div>
+            <h3>品牌方声明与网友截图的时间对不上</h3>
+            <p>争议点在于声明发布时间与截图保存时间存在先后差异。目前双方各执一词，建议先看原始截图的时间戳，再看声明全文。</p>
+          </div>
+        </article>
+        <article class="dish">
+          <div class="icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2f6a3a" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+          </div>
+          <div>
+            <div class="meta">线索二 · 旧料翻新</div>
+            <h3>三年前的旧访谈被重新剪辑传播</h3>
+            <p>片段脱离了原访谈语境，单看剪辑版容易得出相反结论。这类瓜的吃法是把完整版找出来，对照前后问答再评价。</p>
+          </div>
+        </article>
+        <article class="dish">
+          <div class="icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2f6a3a" stroke-width="2" stroke-linecap="round"><path d="M4 18l5-6 4 3 7-9"/></svg>
+          </div>
+          <div>
+            <div class="meta">线索三 · 数据争议</div>
+            <h3>榜单排名变化引发刷量猜测</h3>
+            <p>排名在短时间内大幅波动，但公开数据未显示异常峰值。判断刷量需要对比历史曲线与统计口径，单看一张截图不够。</p>
+          </div>
+        </article>
+        <article class="dish">
+          <div class="icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2f6a3a" stroke-width="2" stroke-linecap="round"><path d="M12 3l9 16H3z"/><path d="M12 10v4"/></svg>
+          </div>
+          <div>
+            <div class="meta">线索四 · 待核实</div>
+            <h3>网传“内部通知”缺少原始出处</h3>
+            <p>流传版本只有转述没有原件，转发链条中已出现多个互不一致的版本。这类内容建议先标记为待核实，不急着站队。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 吃瓜方法 -->
+  <section class="block alt" id="howto">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-tag">Method</div>
+        <h2>吃瓜三步法：先看源头，再看时间，最后看动机</h2>
+        <p>每日吃瓜整理出一套可重复使用的判断流程。它不能保证你每次都猜对，但能减少被带节奏的概率。</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="num">1</div>
+          <h3>找源头</h3>
+          <p>顺着转发链往上翻，找到最早的那条发布。截图、录屏、转述三者的可信度依次递减，能拿到原文就别只看二手总结。</p>
+        </div>
+        <div class="card">
+          <div class="num">2</div>
+          <h3>排时间</h3>
+          <p>把所有材料按时间排一遍。很多瓜的“反转”其实不是反转，只是旧信息被当成了新信息重新发出来。</p>
+        </div>
+        <div class="card">
+          <div class="num">3</div>
+          <h3>看动机</h3>
+          <p>问一句：谁从这个话题里获益？首发者的身份、账号历史与发布时机，往往比内容本身更能说明问题。</p>
+        </div>
+      </div>
+      <div class="terms" aria-label="吃瓜相关关键词">
+        <span>每日吃瓜</span>
+        <span>吃瓜热点</span>
+        <span>事件时间线</span>
+        <span>多方说法</span>
+        <span>待核实</span>
+        <span>旧料翻新</span>
+        <span>理性吃瓜</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 时间线 -->
+  <section class="block" id="timeline">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-tag">Timeline</div>
+        <h2>一条瓜的完整时间线长什么样</h2>
+        <p>以“品牌声明与截图时间对不上”这条线索为例，演示每日吃瓜如何把零散信息排成可读的顺序。以下节点以公开可见的发布顺序整理。</p>
+      </div>
+      <ol class="timeline">
+        <li>
+          <div class="t">阶段一 · 素材出现</div>
+          <h3>截图在社交平台小范围流传</h3>
+          <p>截图内容涉及一段对话，但未附完整上下文。此时信息量最低，多数转发只带一句“真的假的”。</p>
+        </li>
+        <li>
+          <div class="t">阶段二 · 扩散</div>
+          <h3>话题进入热搜讨论区</h3>
+          <p>讨论量上升后出现多个解读版本，其中部分版本互相矛盾。每日吃瓜在这个阶段会标记“待核实”。</p>
+        </li>
+        <li>
+          <div class="t">阶段三 · 回应</div>
+          <h3>当事方发布书面说明</h3>
+          <p>说明中给出时间与流程描述，但未逐条回应截图细节。回应本身成为新的判断材料，而不是终点。</p>
+        </li>
+        <li>
+          <div class="t">阶段四 · 对照</div>
+          <h3>时间戳比对成为关键</h3>
+          <p>读者开始比对截图保存时间与声明发布时间的先后关系。这一步决定后续讨论的方向，也是目前仍未有定论的部分。</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 多方说法 -->
+  <section class="block alt" id="views">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-tag">Views</div>
+        <h2>同一件事，两种读法</h2>
+        <p>每日吃瓜把常见立场并列展示，不为任何一方背书。读的时候可以问自己：哪一方的证据更容易被独立验证？</p>
+      </div>
+      <div class="compare">
+        <div class="card">
+          <h3><span class="badge a">读法 A</span> 时间线支持当事方</h3>
+          <p>如果声明确实早于截图扩散，那么“事后补救”的指控就缺乏依据。支持这一读法的人更看重发布记录与平台时间戳。</p>
+          <p>局限在于：截图可能来自更早的私域对话，公开时间不等于内容产生时间。</p>
+        </div>
+        <div class="card">
+          <h3><span class="badge b">读法 B</span> 细节仍有空白</h3>
+          <p>声明没有回应截图中的具体对话内容，只描述了流程。支持这一读法的人认为，未回应的部分才是争议核心。</p>
+          <p>局限在于：未回应不等于默认，也可能涉及不便公开的信息。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 瓜圈词典 -->
+  <section class="block" id="words">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-tag">Glossary</div>
+        <h2>瓜圈词典：看懂评论区在说什么</h2>
+        <p>每日吃瓜的读者常被缩写和黑话卡住。这里收录几个高频表达，帮助你更快进入讨论语境。</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>实锤</h3>
+          <p>指有原始材料支撑、较难反驳的证据。注意：一张来源不明的截图通常不算实锤。</p>
+        </div>
+        <div class="card">
+          <h3>反转</h3>
+          <p>指新信息推翻了此前的普遍认知。真正的反转需要新证据，而不是同一批材料的重新解读。</p>
+        </div>
+        <div class="card">
+          <h3>带节奏</h3>
+          <p>指用选择性信息引导情绪与立场。识别方法是看发布者是否刻意省略了对自己不利的部分。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="block">
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <h2>把每日吃瓜放进你的日常信息流</h2>
+          <p>每天固定时段更新瓜单与时间线，适合想快速了解话题全貌、又不想被情绪牵着走的读者。先读方法，再读瓜，判断会更稳。</p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-ghost" href="#today">回到今日瓜单</a>
+          <a class="btn btn-ghost" href="#" download data-download-placeholder="true" aria-disabled="true" tabindex="-1" style="pointer-events:none">下载吃瓜手册</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand">
+          <svg class="logo-mark" viewBox="0 0 64 64" role="img" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="#eaf3e6"/>
+            <circle cx="32" cy="32" r="22" fill="#4f9a5b"/>
+            <circle cx="32" cy="32" r="16" fill="#f2f7ee"/>
+            <circle cx="26" cy="29" r="2" fill="#233a24"/>
+            <circle cx="38" cy="29" r="2" fill="#233a24"/>
+            <path d="M25 37q7 6 14 0" stroke="#233a24" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+          </svg>
+          <span>每日吃瓜</span>
+        </div>
+        <p>每日吃瓜是一个梳理吃瓜热点与网络话题的观察站，以时间线和多方说法呈现事件脉络，提倡先核实、再讨论的理性吃瓜方式。</p>
+      </div>
+      <div class="foot-links">
+        <div>
+          <h4>栏目</h4>
+          <ul>
+            <li><a href="#today">今日瓜单</a></li>
+            <li><a href="#howto">吃瓜方法</a></li>
+            <li><a href="#timeline">事件时间线</a></li>
+            <li><a href="#views">多方说法</a></li>
+            <li><a href="#words">瓜圈词典</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>关于</h4>
+          <ul>
+            <li><a href="#top">页面顶部</a></li>
+            <li><a href="#howto">核实原则</a></li>
+            <li><a href="#words">常见术语</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>每日吃瓜 · 内容仅供信息参考，具体事实以当事方与平台原始记录为准。</span>
+      <span>理性吃瓜，不站队、不传谣。</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
