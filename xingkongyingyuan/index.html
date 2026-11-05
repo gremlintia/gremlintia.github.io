@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>星空影院-在线电影观看指南_影视片单与观影入口</title>
+<meta name="description" content="星空影院主题首页，整理在线观影的片单入口、影片信息与观看指南，帮助访问者快速了解星空影院的内容分区与使用路径。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1030'/%3E%3Ccircle cx='20' cy='18' r='2.4' fill='%23ffd166'/%3E%3Ccircle cx='44' cy='14' r='1.6' fill='%23fff'/%3E%3Ccircle cx='50' cy='30' r='2' fill='%23ffd166'/%3E%3Ccircle cx='14' cy='36' r='1.5' fill='%23fff'/%3E%3Cpath d='M18 44h28v6H18z' fill='%23ff6b6b'/%3E%3Cpath d='M18 40l28 0-4-6H22z' fill='%23f7f7ff'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#080c22;
+  --bg2:#0d1433;
+  --card:#121a3f;
+  --line:rgba(255,255,255,.10);
+  --text:#eef1ff;
+  --muted:#a6afd4;
+  --gold:#ffd166;
+  --red:#ff6b6b;
+  --blue:#6fa8ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(1100px 520px at 82% -8%, rgba(111,168,255,.18), transparent 60%),
+    radial-gradient(900px 480px at 8% 4%, rgba(255,209,102,.10), transparent 60%),
+    var(--bg);
+  color:var(--text);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{width:min(1120px,92vw);margin:0 auto}
+
+/* 星点装饰 */
+.stars{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(1.6px 1.6px at 12% 18%, rgba(255,255,255,.75), transparent),
+    radial-gradient(1.2px 1.2px at 32% 62%, rgba(255,255,255,.55), transparent),
+    radial-gradient(1.8px 1.8px at 58% 26%, rgba(255,209,102,.65), transparent),
+    radial-gradient(1.2px 1.2px at 74% 72%, rgba(255,255,255,.5), transparent),
+    radial-gradient(1.5px 1.5px at 88% 38%, rgba(255,255,255,.6), transparent),
+    radial-gradient(1.2px 1.2px at 46% 88%, rgba(255,255,255,.45), transparent);
+  opacity:.8;
+}
+main,header,footer{position:relative;z-index:1}
+
+/* 页头 */
+header{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);
+  background:rgba(8,12,34,.82);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:.5px}
+.logo svg{width:34px;height:34px;flex:none}
+.logo b{background:linear-gradient(92deg,#fff 20%,var(--gold) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.navlinks{display:flex;gap:26px;font-size:15px;color:var(--muted);flex-wrap:wrap}
+.navlinks a{padding:4px 0;border-bottom:2px solid transparent;transition:.2s}
+.navlinks a:hover,.navlinks a:focus-visible{color:#fff;border-color:var(--gold);outline:none}
+.nav-cta{font-size:14px;padding:9px 18px;border-radius:999px;border:1px solid rgba(255,209,102,.55);
+  color:var(--gold);white-space:nowrap;transition:.2s}
+.nav-cta:hover{background:rgba(255,209,102,.12)}
+
+/* 首屏 */
+.hero{padding:64px 0 56px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:2px;
+  color:var(--gold);border:1px solid rgba(255,209,102,.35);border-radius:999px;padding:5px 14px;margin-bottom:20px}
+h1{font-size:clamp(30px,4.6vw,50px);line-height:1.2;margin:0 0 18px;letter-spacing:1px;
+  background:linear-gradient(100deg,#ffffff 25%,#bcd0ff 65%,var(--gold) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:16.5px;color:#c6cdec;max-width:34em;margin:0 0 26px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:10px;font-size:15px;font-weight:600;transition:.2s}
+.btn-main{background:linear-gradient(135deg,var(--red),#ff9a6b);color:#1a0c0c;box-shadow:0 10px 26px rgba(255,107,107,.28)}
+.btn-main:hover{transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--line);color:var(--muted)}
+.btn-ghost:hover{border-color:var(--blue);color:#fff}
+.hero-facts{display:flex;gap:30px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+.hero-facts b{display:block;font-size:22px;color:#fff;font-weight:700}
+
+/* 首屏银幕插画 */
+.screen-card{background:linear-gradient(160deg,#111a44,#0a0f2a);border:1px solid var(--line);
+  border-radius:18px;padding:18px;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.screen-card svg{width:100%;height:auto;border-radius:10px}
+.screen-cap{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);margin-top:12px;padding:0 4px}
+
+/* 通用区块 */
+section{padding:62px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:32px;flex-wrap:wrap}
+h2{font-size:clamp(22px,2.8vw,29px);margin:0;letter-spacing:.5px}
+h2 span{color:var(--gold)}
+.sec-head p{margin:0;color:var(--muted);font-size:14px;max-width:36em}
+
+/* 片单卡片 */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;transition:.25s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-4px);border-color:rgba(111,168,255,.5)}
+.card .tag{font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:10px}
+.card h3{font-size:17.5px;margin:0 0 10px}
+.card p{margin:0;font-size:14.5px;color:var(--muted);flex:1}
+.card .meta{margin-top:16px;font-size:12.5px;color:#8e98c0;border-top:1px dashed var(--line);padding-top:12px}
+
+/* 指南列表 */
+.guide{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 34px}
+.guide-item{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.guide-item .num{flex:none;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;
+  font-weight:700;font-size:14px;color:#0b1030;background:linear-gradient(135deg,var(--gold),#ffe9a8)}
+.guide-item h3{margin:0 0 6px;font-size:16px}
+.guide-item p{margin:0;font-size:14px;color:var(--muted)}
+
+/* 常见问题 */
+.faq{display:grid;gap:14px}
+details{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 22px}
+details[open]{border-color:rgba(255,209,102,.4)}
+summary{cursor:pointer;font-weight:600;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";color:var(--gold);font-weight:400}
+details[open] summary::after{content:"－"}
+details p{margin:12px 0 0;font-size:14.5px;color:var(--muted)}
+
+/* 下载 */
+.download{background:linear-gradient(120deg,rgba(111,168,255,.12),rgba(255,107,107,.10));
+  border:1px solid var(--line);border-radius:18px;padding:36px;display:flex;align-items:center;
+  justify-content:space-between;gap:28px;flex-wrap:wrap}
+.download h2{margin-bottom:8px}
+.download p{margin:0;color:var(--muted);font-size:14.5px;max-width:44em}
+.dl-btn{display:inline-flex;align-items:center;gap:9px;padding:13px 34px;border-radius:10px;font-weight:700;
+  background:linear-gradient(135deg,var(--blue),#9ac2ff);color:#08102a;pointer-events:none;opacity:.9}
+.dl-btn[aria-disabled="true"]{cursor:default}
+
+/* 页尾 */
+footer{padding:44px 0 34px;border-top:1px solid var(--line);margin-top:8px}
+.foot{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+.foot-brand{max-width:30em}
+.foot-brand .logo{margin-bottom:10px}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap}
+.foot-links a:hover{color:var(--gold)}
+.copy{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:#7c86ad}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .cards{grid-template-columns:1fr 1fr}
+  .guide{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .nav{flex-wrap:wrap;gap:10px}
+  .navlinks{order:3;width:100%;gap:18px;font-size:14px}
+  .nav-cta{font-size:13px;padding:7px 14px}
+  .hero{padding:40px 0 38px}
+  .lead{font-size:15.5px}
+  .hero-facts{gap:20px}
+  .cards{grid-template-columns:1fr}
+  section{padding:44px 0}
+  .download{padding:24px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+<div class="stars" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="星空影院 首页">
+      <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#0b1030"/>
+        <circle cx="20" cy="18" r="2.4" fill="#ffd166"/>
+        <circle cx="44" cy="14" r="1.6" fill="#fff"/>
+        <circle cx="50" cy="30" r="2" fill="#ffd166"/>
+        <circle cx="14" cy="36" r="1.5" fill="#fff"/>
+        <path d="M18 44h28v6H18z" fill="#ff6b6b"/>
+        <path d="M18 40h28l-4-6H22z" fill="#f7f7ff"/>
+      </svg>
+      <b>星空影院</b>
+    </a>
+    <nav class="navlinks" aria-label="主导航">
+      <a href="#picks">片单精选</a>
+      <a href="#guide">观看指南</a>
+      <a href="#faq">常见问题</a>
+      <a href="#download">下载主题</a>
+    </nav>
+    <a class="nav-cta" href="#picks">进入片单</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">在线观影 · 主题首页</span>
+        <h1>星空影院</h1>
+        <p class="lead">星空影院是一个围绕在线观影整理内容的主题页面：把片单入口、影片信息与观看路径放在一起，让访问者在打开页面后就能判断看什么、怎么进入，而不必在多个列表之间来回翻找。</p>
+        <div class="hero-actions">
+          <a class="btn btn-main" href="#picks">浏览片单精选</a>
+          <a class="btn btn-ghost" href="#guide">查看观看指南</a>
+        </div>
+        <div class="hero-facts">
+          <div><b>4</b>内容分区</div>
+          <div><b>3</b>片单主题</div>
+          <div><b>5</b>常见问题</div>
+        </div>
+      </div>
+      <div class="screen-card">
+        <svg viewBox="0 0 420 260" role="img" aria-label="星空影院主题插画：夜色中的银幕与星光">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#16224f"/>
+              <stop offset="1" stop-color="#080d26"/>
+            </linearGradient>
+            <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#6fa8ff"/>
+              <stop offset="1" stop-color="#ff6b6b"/>
+            </linearGradient>
+          </defs>
+          <rect width="420" height="260" rx="12" fill="url(#sky)"/>
+          <g fill="#ffffff">
+            <circle cx="40" cy="34" r="1.7" opacity=".8"/>
+            <circle cx="96" cy="20" r="1.2" opacity=".6"/>
+            <circle cx="150" cy="46" r="1.5" opacity=".7"/>
+            <circle cx="210" cy="24" r="1.1" opacity=".5"/>
+            <circle cx="288" cy="38" r="1.8" opacity=".8"/>
+            <circle cx="352" cy="22" r="1.3" opacity=".6"/>
+            <circle cx="386" cy="60" r="1.6" opacity=".7"/>
+            <circle cx="60" cy="92" r="1.2" opacity=".5"/>
+            <circle cx="330" cy="96" r="1.4" opacity=".6"/>
+          </g>
+          <circle cx="352" cy="48" r="15" fill="#ffd166" opacity=".9"/>
+          <circle cx="346" cy="44" r="13" fill="#16224f" opacity=".95"/>
+          <rect x="62" y="96" width="296" height="104" rx="8" fill="#0a1130" stroke="url(#glow)" stroke-width="2"/>
+          <rect x="74" y="108" width="272" height="80" rx="4" fill="url(#glow)" opacity=".22"/>
+          <path d="M196 130l32 18-32 18z" fill="#ffd166"/>
+          <rect x="150" y="200" width="120" height="8" rx="4" fill="#2a3566"/>
+          <rect x="120" y="208" width="180" height="6" rx="3" fill="#1c2550"/>
+          <g fill="#0a1130">
+            <rect x="86" y="216" width="18" height="22" rx="3"/>
+            <rect x="316" y="216" width="18" height="22" rx="3"/>
+          </g>
+        </svg>
+        <div class="screen-cap"><span>夜色银幕 · 主题视觉</span><span>星空影院</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 片单精选 -->
+  <section id="picks">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>片单精选：<span>按观影意图分组</span></h2>
+        <p>星空影院的片单不做简单堆叠，而是按“想轻松看”“想认真看”“想陪家人看”三种意图分组，方便先定方向再挑具体影片。</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="tag">轻松 · 短时</div>
+          <h3>下班后的一小时</h3>
+          <p>适合时间零碎、希望快速进入情节的观众。这类内容节奏直接、前情交代短，打开即可跟上，不必额外补背景。</p>
+          <div class="meta">建议时长：90 分钟以内 · 适合单人观看</div>
+        </article>
+        <article class="card">
+          <div class="tag">深度 · 长片</div>
+          <h3>留到周末的片</h3>
+          <p>信息密度较高、需要连续注意力的影片。星空影院建议把这类内容放在完整时段观看，避免中途打断影响理解。</p>
+          <div class="meta">建议时段：整块晚间 · 建议关闭消息提醒</div>
+        </article>
+        <article class="card">
+          <div class="tag">合家 · 共看</div>
+          <h3>一家人一起看</h3>
+          <p>面向多人同时观看的场景，题材温和、情节容易跟上，适合边看边交流，也方便中途暂停再接续。</p>
+          <div class="meta">适合场景：客厅大屏 · 亲子或家庭共看</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 观看指南 -->
+  <section id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>观看指南：<span>把路径走顺</span></h2>
+        <p>从选片到看完，星空影院把常见的四步路径整理在下面，每一步只回答一个具体问题。</p>
+      </div>
+      <div class="guide">
+        <div class="guide-item">
+          <div class="num">1</div>
+          <div>
+            <h3>先定场景，再定影片</h3>
+            <p>用“什么时候看、和谁看、能看多久”三个条件缩小范围，通常比直接翻排行榜更快得到合适结果。</p>
+          </div>
+        </div>
+        <div class="guide-item">
+          <div class="num">2</div>
+          <div>
+            <h3>确认版本与时长</h3>
+            <p>同一部作品可能有不同版本，观看前先核对片长与语言，能避免看到一半才发现与预期不符。</p>
+          </div>
+        </div>
+        <div class="guide-item">
+          <div class="num">3</div>
+          <div>
+            <h3>调整画面与音量</h3>
+            <p>大屏观看时先设定亮度与字幕大小，再开始播放；小屏则优先保证横屏与音量平衡，减少中途调整。</p>
+          </div>
+        </div>
+        <div class="guide-item">
+          <div class="num">4</div>
+          <div>
+            <h3>看完留一条记录</h3>
+            <p>记下片名与一句话感受，下次在星空影院选片时可以直接回看自己的偏好，减少重复挑选的时间。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 常见问题 -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>常见问题</h2>
+        <p>围绕访问星空影院时最常被问到的几件事，答案尽量简短直接。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>星空影院这个页面主要提供什么？</summary>
+          <p>本页是星空影院的主题首页，核心内容是观影片单、观看路径与常见问题说明，帮助访问者先建立方向，再决定看什么。</p>
+        </details>
+        <details>
+          <summary>片单会随时间更新吗？</summary>
+          <p>片单按观影意图分组，分组方式相对稳定；具体影片条目会随整理进度调整，访问时以页面当前展示为准。</p>
+        </details>
+        <details>
+          <summary>没有看完的影片怎么接着看？</summary>
+          <p>建议记下片名与大致进度。本页不保存观看记录，续看依赖所用播放端自身的记录功能。</p>
+        </details>
+        <details>
+          <summary>适合和家人一起使用吗？</summary>
+          <p>可以。片单中的“一家人一起看”分组就是为多人共看准备的，题材与节奏都按家庭场景挑选。</p>
+        </details>
+        <details>
+          <summary>页面上的下载入口现在能用吗？</summary>
+          <p>下载主题入口已预留位置，当前为占位状态，尚不可点击；后续替换为正式地址后即可正常使用。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 下载 -->
+  <section id="download">
+    <div class="wrap">
+      <div class="download">
+        <div>
+          <h2>下载星空影院主题</h2>
+          <p>把本页的配色、卡片与版式作为基础，用于搭建同类的观影主题页面。入口当前为占位状态，正式地址就位后即可下载。</p>
+        </div>
+        <a class="dl-btn" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <div class="logo">
+          <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#0b1030"/>
+            <circle cx="20" cy="18" r="2.4" fill="#ffd166"/>
+            <circle cx="50" cy="30" r="2" fill="#ffd166"/>
+            <path d="M18 44h28v6H18z" fill="#ff6b6b"/>
+            <path d="M18 40h28l-4-6H22z" fill="#f7f7ff"/>
+          </svg>
+          <b>星空影院</b>
+        </div>
+        <p>星空影院是一个在线观影主题页面，集中呈现片单分组、观看路径与常见问题，内容以整理与指引为主。</p>
+      </div>
+      <nav class="foot-links" aria-label="页尾导航">
+        <a href="#picks">片单精选</a>
+        <a href="#guide">观看指南</a>
+        <a href="#faq">常见问题</a>
+        <a href="#download">下载主题</a>
+        <a href="#top">回到顶部</a>
+      </nav>
+    </div>
+    <div class="copy">© 2024 星空影院 · 主题首页 · 页面内容以实际整理为准</div>
+  </div>
+</footer>
+
+</body>
+</html>
